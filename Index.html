@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Farzana 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff7f0;
+      color: #4b3b3b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .task-button, .heart {
+      padding: 12px 20px;
+      font-size: 16px;
+      margin: 10px;
+      border: none;
+      border-radius: 25px;
+      background-color: #ffc4d6;
+      color: #4b3b3b;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .task-button:hover, .heart:hover {
+      background-color: #fbaec6;
+    }
+
+    .hearts-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .heart {
+      width: 80px;
+      height: 80px;
+      font-size: 30px;
+      background: #ffd6e0;
+      border-radius: 50%;
+    }
+
+    .final-message {
+      font-size: 1.3rem;
+      padding: 20px;
+      max-width: 700px;
+      line-height: 1.7;
+      background-color: #fff0f5;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 192, 203, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div id="step1">
+    <h1>Hi Farzana 💖</h1>
+    <p>Are you ready for a little birthday adventure?</p>
+    <button class="task-button" onclick="showStep2()">Yes! Let's go</button>
+  </div>
+
+  <div id="step2" class="hidden">
+    <h2>Task 1: Tap 3 hearts! 💗</h2>
+    <div class="hearts-container">
+      <button class="heart" onclick="clickHeart(this)">💖</button>
+      <button class="heart" onclick="clickHeart(this)">💖</button>
+      <button class="heart" onclick="clickHeart(this)">💖</button>
+      <button class="heart" onclick="clickHeart(this)">💖</button>
+      <button class="heart" onclick="clickHeart(this)">💖</button>
+    </div>
+  </div>
+
+  <div id="step3" class="hidden">
+    <h2>Task 2: Type "I love you" below 💌</h2>
+    <input type="text" id="loveInput" placeholder="Type here..." style="padding:10px; border-radius:10px; border:1px solid #ccc;">
+    <br>
+    <button class="task-button" onclick="checkLoveMessage()">Submit</button>
+  </div>
+
+  <div id="step4" class="hidden">
+    <h2>🎉 Final Surprise 🎉</h2>
+    <div class="final-message">
+      Happy Birthday, my love.<br><br>
+      On this day, the universe decided the world needed someone incredibly special — and that someone was you.<br><br>
+      You’re not just my girlfriend — you’re the calm in my chaos, the light in my dark days, the reason my heart beats a little softer and a little louder at the same time.<br><br>
+      Thank you for being the most beautiful part of my life. I’ll always be here — loving you more than yesterday, but never more than tomorrow.<br><br>
+      <strong>I love you, Farzana Shahanaz. Happy Birthday. 💖</strong>
+    </div>
+  </div>
+
+  <script>
+    let heartsClicked = 0;
+
+    function showStep2() {
+      document.getElementById('step1').classList.add('hidden');
+      document.getElementById('step2').classList.remove('hidden');
+    }
+
+    function clickHeart(el) {
+      el.disabled = true;
+      heartsClicked++;
+      if (heartsClicked >= 3) {
+        document.getElementById('step2').classList.add('hidden');
+        document.getElementById('step3').classList.remove('hidden');
+      }
+    }
+
+    function checkLoveMessage() {
+      const input = document.getElementById('loveInput').value.trim().toLowerCase();
+      if (input === 'i love you') {
+        document.getElementById('step3').classList.add('hidden');
+        document.getElementById('step4').classList.remove('hidden');
+      } else {
+        alert("Hmm... not quite! Try typing 'I love you' exactly.");
+      }
+    }
+  </script>
+</body>
+</html>
